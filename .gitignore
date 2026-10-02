@@ -1,0 +1,24 @@
+# Dữ liệu PCD / ảnh — không commit
+*.pcd
+*.bin
+*.png
+*.jpg
+*.jpeg
+
+# Output inference
+ket-qua-*/
+run-*/
+qc-cases/
+
+# Docker
+*.tar
+*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
