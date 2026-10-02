@@ -1,26 +1,32 @@
-# K4-DAY13 — Khúc Việt Anh (2A202602088)
+# K4 - Day 13: Robotaxi LiDAR 3D Object & PointPillars Practice
 
-Repo cá nhân cho bài thực hành **Day 13: Robotaxi LiDAR 3D Object**.
+Repo bài tập thực hành cá nhân — Day 13: Robotaxi LiDAR 3D Object Annotation & PointPillars Practice.
 
-## Cấu trúc
+- **Học viên:** Khúc Việt Anh
+- **MSSV:** 2A202602088
+- **Hình thức:** Cá nhân (Solo)
+
+## Cấu trúc thư mục nộp bài
 
 ```
 K4-DAY13-KhucVietAnh-2A202602088/
-├── README.md                          ← file này
-├── report/
-│   └── K4-DAY13-TenNhom/             ← đổi TenNhom thành tên nhóm thật
-│       ├── PRE-LABEL-REPORT.md        ← báo cáo thí nghiệm PointPillars
-│       └── TEAMMATES.md               ← danh sách thành viên + vai trò
-└── .gitignore
+├── README.md
+├── .gitignore
+└── report/
+    ├── PRE-LABEL-REPORT.md   # Báo cáo thực hành PointPillars và phân tích ca QC
+    └── TEAMMATES.md          # Thông tin cá nhân học viên thực hiện
 ```
 
-## Nguồn bài học
+## Nội dung bài thực hành
 
-- Repo gốc: [K4-L2L3-Day13-Robotaxi-LiDAR-3D-Object-Student](https://github.com/VinUni-AI20k/K4-L2L3-Day13-Robotaxi-LiDAR-3D-Object-Student)
-
-## Lưu ý
-
-- **Không** commit PCD, ảnh camera, annotation Robotaxi lên repo
-- **Không** đăng ảnh/quay màn hình dữ liệu lên mạng xã hội
-- Annotation và feedback nộp qua **CVAT + Portal**, không nộp ở đây
-- File báo cáo chứa thông tin cá nhân → giữ repo **private**
+1. **PointPillars Inference (A / B / C):**
+   - Lượt A: `delta = 0 m`, `pillar_xy = 0.16 m` (Khảo sát việc không dịch z trước inference)
+   - Lượt B: `delta = 1.73 m`, `pillar_xy = 0.16 m` (Mốc đối chiếu chuẩn)
+   - Lượt C: `delta = 1.73 m`, `pillar_xy = 0.32 m` (Khảo sát ảnh hưởng khi tăng kích thước pillar)
+2. **Phân tích lỗi pipeline vs. lỗi đối tượng (3 ca QC):**
+   - Đánh giá `case-correct`, `case-batch-z`, `case-one-box-z`
+   - Phân tích công thức chuyển đổi cao độ $z$ thuận và nghịch
+   - Ra quyết định dừng batch hay kiểm tra từng cuboid
+3. **Nạp Pre-label & Chỉnh sửa Cuboid 3D trên CVAT:**
+   - Hoàn thiện các job gán nhãn 3D point cloud Robotaxi trên portal
+   - Thực hiện QC chéo và nộp phản hồi snapshot v2
